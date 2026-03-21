@@ -5,7 +5,7 @@ use tokio::{
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
     println!("Smoketest server has started");
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:8080").await?;
+    let listener = tokio::net::TcpListener::bind("[::]:8080").await?;
     loop {
         match listener.accept().await {
             Ok((mut socket, _)) => {
