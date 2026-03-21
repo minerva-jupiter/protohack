@@ -10,9 +10,9 @@ async fn main() -> std::io::Result<()> {
         match listener.accept().await {
             Ok((mut socket, _)) => {
                 let mut buf = Vec::with_capacity(4096);
-                socket.read(&mut buf).await?;
+                socket.read_buf(&mut buf).await?;
                 println!("{:?}", buf);
-                socket.write(&buf).await?;
+                socket.write_all(&buf).await?;
             }
             Err(e) => {
                 return Err(e.into());
