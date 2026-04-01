@@ -10,7 +10,7 @@ struct PrimeRequest {
 #[derive(Serialize)]
 struct PrimeResponse {
     method: String,
-    is_prime: bool,
+    prime: bool,
 }
 
 #[tokio::main]
