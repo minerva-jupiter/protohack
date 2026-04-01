@@ -45,11 +45,18 @@ async fn main() -> std::io::Result<()> {
 fn is_prime(n: f64) -> bool {
     if n.fract() != 0.0 || n < 2.0 {
         return false;
-    }
-    for i in 2..(n as u64) {
-        if n % i as f64 == 0.0 {
-            return false;
+    } else if n == 2.0 {
+        return true;
+    } else if n % 2.0 == 0.0 {
+        return false;
+    } else {
+        let mut i = 3.0;
+        while i * i <= n {
+            if n % i == 0.0 {
+                return false;
+            }
+            i += 2.0;
         }
+        true
     }
-    true
 }
