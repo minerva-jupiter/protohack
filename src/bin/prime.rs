@@ -29,7 +29,7 @@ async fn main() -> std::io::Result<()> {
                 };
                 let is_prime = is_prime(request.number);
                 let response = PrimeResponse {
-                    method: "is_prime".to_string(),
+                    method: "isPrime".to_string(),
                     prime: is_prime,
                 };
                 let mut payload = serde_json::to_vec(&response).unwrap();
