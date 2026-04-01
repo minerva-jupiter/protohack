@@ -25,7 +25,7 @@ async fn main() -> std::io::Result<()> {
             while let Ok(Some(line)) = reader.next_line().await {
                 let request: PrimeRequest = match serde_json::from_str::<PrimeRequest>(&line) {
                     Ok(r) if r.method == "isPrime" => r,
-                    _ => continue,
+                    _ => return,
                 };
                 let is_prime = is_prime(request.number);
                 let response = PrimeResponse {
